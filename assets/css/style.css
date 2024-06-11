@@ -84,7 +84,6 @@ body{
 
 /* ----- NAVIGATION BAR ----- */
 nav{
-    zoom: 120%;
     position: fixed;
     display: flex;
     justify-content: space-between;
