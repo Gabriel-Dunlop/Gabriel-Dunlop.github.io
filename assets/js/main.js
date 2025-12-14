@@ -43,9 +43,9 @@ class ThemeManager {
   loadSavedTheme() {
     const savedTheme =
       localStorage.getItem("theme") ||
-      (window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
-        : "light")
+      (window.matchMedia("(prefers-color-scheme: light)").matches
+        ? "light"
+        : "dark")
 
     if (savedTheme === "dark") {
       this.setDarkTheme()
