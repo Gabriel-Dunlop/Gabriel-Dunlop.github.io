@@ -285,12 +285,7 @@ class TypingEffect {
 function initTypingEffect() {
   if (typeof Typed !== "undefined") {
     new Typed(".typedText", {
-      strings: [
-        "Full-Stack Developer",
-        "Problem Solver",
-        "Tech Innovator",
-        "UI/UX Enthusiast"
-      ],
+      strings: ["Cloud Engineer", "Problem Solver", "Tech Innovator"],
       loop: true,
       typeSpeed: 100,
       backSpeed: 50,
