@@ -33,11 +33,9 @@
         }
     </style>
     <script>
-        // Show page immediately if JS fails, or after short delay
         document.addEventListener('DOMContentLoaded', () => {
             document.body.classList.add('loaded')
         })
-        // Fallback in case DOMContentLoaded doesn't fire
         setTimeout(() => {
             document.body.classList.add('loaded')
         }, 100)
@@ -49,10 +47,10 @@
    <div class="container">
       <header>
         <nav id="header" role="navigation" aria-label="Main navigation">
-          <div class="nav-logo">
+          <a href="#home" class="nav-logo" aria-label="Go to top">
               <img src="assets/logo.png" alt="Gabriel Dunlop Logo" class="logo-image">
               <h1 class="nav-name">Gabriel Dunlop</h1>
-          </div>
+          </a>
           <div class="nav-menu" id="myNavMenu">
               <ul class="nav_menu_list" role="menubar">
                   <li class="nav_list" role="none">
