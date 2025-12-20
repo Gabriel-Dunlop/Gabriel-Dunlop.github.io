@@ -1000,11 +1000,6 @@ strong {
   color: var(--accent);
 }
 
-.aws-cert-icon {
-  width: 48px;
-  height: auto;
-}
-
 .certification-content {
   flex: 1;
 }
