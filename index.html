@@ -32,6 +32,16 @@
             opacity: 1;
         }
     </style>
+    <script>
+        // Show page immediately if JS fails, or after short delay
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.classList.add('loaded')
+        })
+        // Fallback in case DOMContentLoaded doesn't fire
+        setTimeout(() => {
+            document.body.classList.add('loaded')
+        }, 100)
+    </script>
 </head>
 <body>
     <div class="scroll-progress" id="scroll-progress"></div>
