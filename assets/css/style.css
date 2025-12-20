@@ -97,7 +97,7 @@ html {
 
 .scroll-progress {
   position: fixed !important;
-  top: 0 !important;
+  top: 80px !important;
   left: 0 !important;
   height: 4px !important;
   background: var(--gradient-primary) !important;
