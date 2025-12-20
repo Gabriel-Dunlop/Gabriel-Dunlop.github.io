@@ -3,35 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
     <meta name="description" content="Gabriel Dunlop - Full Stack Developer passionate about creating innovative web applications">
     <meta name="keywords" content="Gabriel Dunlop, Full Stack Developer, Web Developer, JavaScript, React, Node.js">
     <meta name="author" content="Gabriel Dunlop">
-    
-    <!-- Open Graph / Facebook -->
+
     <meta property="og:type" content="website">
     <meta property="og:title" content="Gabriel Dunlop - Full Stack Developer">
     <meta property="og:description" content="Passionate developer committed to crafting visually stunning and innovative applications">
-    
-    <!-- Twitter -->
+
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Gabriel Dunlop - Full Stack Developer">
-    
+
     <title>Gabriel Dunlop | Full Stack Developer</title>
 
-    <!-- --------- UNICONS ---------- -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 
-    <!-- --------- CSS ---------- -->
     <link rel="stylesheet" href="assets/css/style.css">
 
-    <!-- --------- FAVICON ---------- -->
     <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
 
 </head>
 <body>
-    
+    <div class="scroll-progress" id="scroll-progress"></div>
+
    <div class="container">
-    <!-- --------------- HEADER --------------- -->
       <header>
         <nav id="header" role="navigation" aria-label="Main navigation">
           <div class="nav-logo">
@@ -65,10 +61,7 @@
         </nav>
       </header>
 
-
-    <!-- -------------- MAIN ---------------- -->
     <main class="wrapper">
-       <!-- -------------- HERO SECTION ---------------- -->
        <section class="hero-section" id="home" aria-label="Hero section">
           <div class="hero-content">
             <div class="hero-text">
@@ -76,11 +69,11 @@
                   <span class="greeting-badge">Gabriel Dunlop</span>
               </div>
               <div class="hero-title">
-                  <h2>Greetings! <span class="wave-emoji">👋</span></h2>
+                  <h2>Greetings! <span class="greeting-emoji">🙋‍♂️</span></h2>
                   <h3>I'm a <span class="typedText"></span></h3>
               </div>
               <div class="hero-description">
-                  <p>Passionate full-stack developer committed to crafting visually stunning and innovative web applications that deliver exceptional user experiences.</p>
+                  <p>Passionate full-stack cloud engineer committed to crafting innovative web applications with cloud solutions</p>
               </div>
               <div class="hero-actions">
                   <a class="btn btn-primary" href="#contact" aria-label="Contact Gabriel Dunlop">Contact Me</a>
@@ -112,7 +105,6 @@
             </a>
           </div>
        </section>
-       <!-- -------------- ABOUT SECTION ---------------- -->
        <section class="section about-section" id="about" aria-label="About Gabriel Dunlop">
           <div class="section-header">
             <h2>About Me</h2>
@@ -171,7 +163,6 @@
           </div>
        </section>
 
-       <!-- -------------- PROJECTS SECTION ---------------- -->
        <section class="section projects-section" id="projects" aria-label="Gabriel's Projects">
           <div class="section-header">
               <h2>Featured Projects</h2>
@@ -214,8 +205,26 @@
                     </div>
                 </div>
                 <div class="project-actions">
-                    <a href="https://github.com/matthew-trifonov/5166Project" target="_blank" rel="noopener noreferrer" 
+                    <a href="https://github.com/matthew-trifonov/5166Project" target="_blank" rel="noopener noreferrer"
                        class="btn btn-small" aria-label="View Mindful Meet source code">
+                        <i class="uil uil-github" aria-hidden="true"></i> Source
+                    </a>
+                </div>
+            </article>
+            <article class="project-card">
+                <div class="project-icon">
+                    <i class="uil uil-game-structure" aria-hidden="true"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Modular Wordle</h3>
+                    <p class="project-description">A customizable implementation of the popular word-guessing game. Built with a focus on clean code architecture and extensibility.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                    </div>
+                </div>
+                <div class="project-actions">
+                    <a href="https://github.com/Gabriel-Dunlop/Wordle" target="_blank" rel="noopener noreferrer"
+                       class="btn btn-small" aria-label="View Modular Wordle source code">
                         <i class="uil uil-github" aria-hidden="true"></i> Source
                     </a>
                 </div>
@@ -223,7 +232,6 @@
           </div>
        </section>
 
-       <!-- -------------- CONTACT SECTION ---------------- -->
        <section class="section contact-section" id="contact" aria-label="Contact Gabriel Dunlop">
           <div class="section-header">
             <h2>Let's Connect</h2>
@@ -263,7 +271,6 @@
           </div>
     </main>
 
-    <!-- --------------- FOOTER --------------- -->
     <footer>
         <div class="container">
             <div class="footer-brand">
@@ -304,16 +311,10 @@
 
     </div>
 
-
-
-
-    <!-- ----- TYPING JS Link ----- -->
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
 
-       <!-- ----- SCROLL REVEAL JS Link----- -->
     <script src="https://unpkg.com/scrollreveal"></script>
 
-    <!-- ----- MAIN JS ----- -->
     <script src="assets/js/main.js"></script>
 </body>
 </html>

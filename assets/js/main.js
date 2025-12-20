@@ -1,4 +1,3 @@
-/* ----- MODERN THEME MANAGEMENT ----- */
 class ThemeManager {
   constructor() {
     this.body = document.body
@@ -53,7 +52,6 @@ class ThemeManager {
   }
 
   announceThemeChange(message) {
-    // For screen readers
     const announcement = document.createElement("div")
     announcement.setAttribute("aria-live", "polite")
     announcement.setAttribute("aria-atomic", "true")
@@ -67,7 +65,6 @@ class ThemeManager {
   }
 
   setupEventListeners() {
-    // Listen for system theme changes
     window
       .matchMedia("(prefers-color-scheme: dark)")
       .addEventListener("change", (e) => {
@@ -78,12 +75,10 @@ class ThemeManager {
   }
 }
 
-// Global function for backward compatibility
 function toggleTheme() {
   window.themeManager?.toggleTheme()
 }
 
-/* ----- MODERN NAVIGATION MANAGER ----- */
 class NavigationManager {
   constructor() {
     this.navMenu = document.getElementById("myNavMenu")
@@ -109,10 +104,8 @@ class NavigationManager {
     this.navMenuBtn?.setAttribute("aria-expanded", "true")
     this.isOpen = true
 
-    // Focus first nav link for keyboard users
     this.navLinks[0]?.focus()
 
-    // Add click outside listener
     document.addEventListener("click", this.handleClickOutside.bind(this))
   }
 
@@ -122,7 +115,6 @@ class NavigationManager {
     this.navMenuBtn?.setAttribute("aria-expanded", "false")
     this.isOpen = false
 
-    // Remove click outside listener
     document.removeEventListener("click", this.handleClickOutside.bind(this))
   }
 
@@ -136,7 +128,6 @@ class NavigationManager {
   }
 
   setupEventListeners() {
-    // Close menu when clicking nav links
     this.navLinks.forEach((link) => {
       link.addEventListener("click", () => {
         if (this.isOpen) {
@@ -145,7 +136,6 @@ class NavigationManager {
       })
     })
 
-    // Handle resize events
     window.addEventListener("resize", () => {
       if (window.innerWidth > 768 && this.isOpen) {
         this.closeMenu()
@@ -154,7 +144,6 @@ class NavigationManager {
   }
 
   setupKeyboardNavigation() {
-    // Escape key closes menu
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && this.isOpen) {
         this.closeMenu()
@@ -162,7 +151,6 @@ class NavigationManager {
       }
     })
 
-    // Tab navigation within menu
     this.navLinks.forEach((link, index) => {
       link.addEventListener("keydown", (e) => {
         if (e.key === "Tab" && this.isOpen) {
@@ -179,15 +167,14 @@ class NavigationManager {
   }
 }
 
-// Global function for backward compatibility
 function myMenuFunction() {
   window.navigationManager?.toggleMenu()
 }
 
-/* ----- MODERN SCROLL MANAGER ----- */
 class ScrollManager {
   constructor() {
     this.header = document.getElementById("header")
+    this.progressBar = document.getElementById("scroll-progress")
     this.lastScrollY = window.scrollY
     this.ticking = false
     this.init()
@@ -195,7 +182,8 @@ class ScrollManager {
 
   init() {
     this.setupScrollListener()
-    this.updateHeaderShadow() // Initial call
+    this.updateHeaderShadow()
+    this.updateProgressBar()
   }
 
   setupScrollListener() {
@@ -213,6 +201,7 @@ class ScrollManager {
     if (!this.ticking) {
       requestAnimationFrame(() => {
         this.updateHeaderShadow()
+        this.updateProgressBar()
         this.ticking = false
       })
       this.ticking = true
@@ -227,9 +216,18 @@ class ScrollManager {
       this.header.classList.toggle("scrolled", isScrolled)
     }
   }
+
+  updateProgressBar() {
+    if (this.progressBar) {
+      const windowHeight = window.innerHeight
+      const documentHeight = document.documentElement.scrollHeight
+      const scrollableHeight = documentHeight - windowHeight
+      const scrollPercentage = (this.lastScrollY / scrollableHeight) * 100
+      this.progressBar.style.width = `${Math.min(scrollPercentage, 100)}%`
+    }
+  }
 }
 
-/* ----- MODERN TYPING EFFECT ----- */
 class TypingEffect {
   constructor() {
     this.element = document.querySelector(".typedText")
@@ -281,7 +279,6 @@ class TypingEffect {
   }
 }
 
-// Fallback to Typed.js if available
 function initTypingEffect() {
   if (typeof Typed !== "undefined") {
     new Typed(".typedText", {
@@ -297,7 +294,6 @@ function initTypingEffect() {
   }
 }
 
-/* ----- MODERN INTERSECTION OBSERVER ANIMATIONS ----- */
 class AnimationManager {
   constructor() {
     this.observerOptions = {
@@ -314,7 +310,6 @@ class AnimationManager {
   }
 
   setupScrollAnimations() {
-    // Fallback to ScrollReveal if available
     if (typeof ScrollReveal !== "undefined") {
       this.initScrollReveal()
     } else {
@@ -331,11 +326,9 @@ class AnimationManager {
       viewFactor: 0.1
     })
 
-    // Hero animations
     sr.reveal(".hero-text", { delay: 100 })
     sr.reveal(".hero-image", { delay: 200, origin: "right" })
 
-    // Section animations
     sr.reveal(".section-header", { delay: 100 })
     sr.reveal(".about-card", { delay: 200, origin: "left" })
     sr.reveal(".skill-category", { delay: 100, interval: 150 })
@@ -353,7 +346,6 @@ class AnimationManager {
       })
     }, this.observerOptions)
 
-    // Observe elements
     const animateElements = document.querySelectorAll(
       ".hero-text, .hero-image, .section-header, .about-card, .skill-category, .project-card, .contact-card"
     )
@@ -365,7 +357,6 @@ class AnimationManager {
   }
 }
 
-/* ----- MODERN ACTIVE SECTION MANAGER ----- */
 class ActiveSectionManager {
   constructor() {
     this.sections = document.querySelectorAll("section[id]")
@@ -377,7 +368,7 @@ class ActiveSectionManager {
 
   init() {
     this.setupScrollListener()
-    this.updateActiveSection() // Initial call
+    this.updateActiveSection()
   }
 
   setupScrollListener() {
@@ -407,11 +398,9 @@ class ActiveSectionManager {
 
     let activeSection = null
 
-    // Check if at bottom of page
     if (scrollY + windowHeight >= documentHeight - 100) {
       activeSection = this.sections[this.sections.length - 1]
     } else {
-      // Find active section based on scroll position
       this.sections.forEach((section) => {
         const sectionTop = section.offsetTop - 100
         const sectionHeight = section.offsetHeight
@@ -422,7 +411,6 @@ class ActiveSectionManager {
       })
     }
 
-    // Update active link if changed
     if (activeSection && activeSection !== this.currentActive) {
       this.currentActive = activeSection
       this.setActiveLink(activeSection.id)
@@ -430,13 +418,11 @@ class ActiveSectionManager {
   }
 
   setActiveLink(activeId) {
-    // Remove all active classes
     this.navLinks.forEach((link) => {
       link.classList.remove("active-link")
       link.removeAttribute("aria-current")
     })
 
-    // Add active class to current section link
     const activeLink = document.querySelector(`a[href="#${activeId}"]`)
     if (activeLink) {
       activeLink.classList.add("active-link")
@@ -445,7 +431,6 @@ class ActiveSectionManager {
   }
 }
 
-/* ----- PERFORMANCE OPTIMIZATIONS ----- */
 class PerformanceManager {
   constructor() {
     this.init()
@@ -460,11 +445,9 @@ class PerformanceManager {
     const images = document.querySelectorAll('img[loading="lazy"]')
 
     if ("loading" in HTMLImageElement.prototype) {
-      // Native lazy loading supported
       return
     }
 
-    // Fallback for older browsers
     const imageObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -480,7 +463,6 @@ class PerformanceManager {
   }
 
   preloadCriticalResources() {
-    // Preload critical fonts
     const fontLinks = [
       "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
     ]
@@ -495,7 +477,6 @@ class PerformanceManager {
   }
 }
 
-/* ----- MODERN INITIALIZATION ----- */
 class PortfolioApp {
   constructor() {
     this.managers = {}
@@ -503,7 +484,6 @@ class PortfolioApp {
   }
 
   init() {
-    // Wait for DOM to be ready
     if (document.readyState === "loading") {
       document.addEventListener("DOMContentLoaded", () =>
         this.initializeManagers()
@@ -515,7 +495,6 @@ class PortfolioApp {
 
   initializeManagers() {
     try {
-      // Initialize core managers
       this.managers.theme = new ThemeManager()
       this.managers.navigation = new NavigationManager()
       this.managers.scroll = new ScrollManager()
@@ -523,14 +502,11 @@ class PortfolioApp {
       this.managers.animation = new AnimationManager()
       this.managers.performance = new PerformanceManager()
 
-      // Make managers globally accessible
       window.themeManager = this.managers.theme
       window.navigationManager = this.managers.navigation
 
-      // Initialize typing effect
       initTypingEffect()
 
-      // Setup smooth scrolling for anchor links
       this.setupSmoothScrolling()
 
       console.log("Portfolio app initialized successfully")
@@ -564,5 +540,4 @@ class PortfolioApp {
   }
 }
 
-// Initialize the app
 new PortfolioApp()
