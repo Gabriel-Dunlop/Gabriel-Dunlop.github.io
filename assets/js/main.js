@@ -540,4 +540,9 @@ class PortfolioApp {
   }
 }
 
+// Page load handler to prevent FOUC
+window.addEventListener('load', () => {
+  document.body.classList.add('loaded')
+})
+
 new PortfolioApp()

@@ -23,6 +23,15 @@
 
     <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
 
+    <style>
+        body {
+            opacity: 0;
+            transition: opacity 0.3s ease-in;
+        }
+        body.loaded {
+            opacity: 1;
+        }
+    </style>
 </head>
 <body>
     <div class="scroll-progress" id="scroll-progress"></div>
