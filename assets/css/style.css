@@ -901,38 +901,30 @@ strong {
   background: rgba(168, 85, 247, 0.1);
 }
 
-.certifications-card h3 {
-  margin-bottom: var(--space-lg);
-}
-
-.certifications-list {
+.about-content {
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
+  gap: var(--space-xl);
 }
 
 .certification-item {
   display: flex;
   align-items: center;
   gap: var(--space-md);
-  padding: var(--space-md);
-  background: var(--surface-alt);
-  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
   transition: all var(--transition-normal);
   text-decoration: none;
   color: inherit;
   position: relative;
-  border: 1px solid transparent;
 }
 
 .certification-item:hover {
-  background: var(--primary-50);
-  border-color: var(--accent);
-  transform: translateX(4px);
-}
-
-[data-theme="dark"] .certification-item:hover {
-  background: rgba(168, 85, 247, 0.1);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
 }
 
 .certification-link-icon {
@@ -940,20 +932,22 @@ strong {
   color: var(--accent);
   margin-left: auto;
   flex-shrink: 0;
-  transition: transform var(--transition-normal);
+  opacity: 0.6;
+  transition: all var(--transition-normal);
 }
 
 .certification-item:hover .certification-link-icon {
-  transform: translateX(4px);
+  opacity: 1;
+  transform: translateX(2px);
 }
 
 .certification-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: var(--radius-md);
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-lg);
   background: var(--primary-50);
   flex-shrink: 0;
 }
@@ -963,7 +957,7 @@ strong {
 }
 
 .certification-icon i {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   color: var(--accent);
 }
 
@@ -972,14 +966,14 @@ strong {
 }
 
 .certification-content h4 {
-  font-size: 0.9375rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--text-primary);
-  margin: 0 0 0.125rem 0;
+  margin: 0 0 0.25rem 0;
 }
 
 .certification-issuer {
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   color: var(--text-secondary);
   margin: 0;
 }
