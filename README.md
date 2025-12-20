@@ -1,1 +1,1 @@
-https://gabriel-dunlop.github.io/
+gabrieldunlop.com
