@@ -953,6 +953,9 @@ strong {
   padding: var(--space-xl);
   box-shadow: var(--shadow-md);
   transition: all var(--transition-normal);
+  text-decoration: none;
+  color: inherit;
+  position: relative;
 }
 
 .certification-card:hover {
@@ -963,6 +966,18 @@ strong {
 
 [data-theme="dark"] .certification-card:hover {
   background: rgba(168, 85, 247, 0.1);
+}
+
+.certification-link-icon {
+  font-size: 1.25rem;
+  color: var(--accent);
+  margin-left: auto;
+  flex-shrink: 0;
+  transition: transform var(--transition-normal);
+}
+
+.certification-card:hover .certification-link-icon {
+  transform: translateX(4px);
 }
 
 .certification-icon {
@@ -1535,6 +1550,12 @@ footer .container {
   .certification-card {
     flex-direction: column;
     text-align: center;
+  }
+
+  .certification-link-icon {
+    position: absolute;
+    top: var(--space-lg);
+    right: var(--space-lg);
   }
 
   .footer-menu {
