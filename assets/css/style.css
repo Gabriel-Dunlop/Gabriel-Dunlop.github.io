@@ -340,7 +340,7 @@ nav {
   border-radius: var(--radius-lg);
   object-fit: cover;
   box-shadow: var(--shadow-sm);
-  filter: invert(1);
+  filter: brightness(0) saturate(100%) invert(28%) sepia(93%) saturate(5969%) hue-rotate(286deg) brightness(94%) contrast(101%);
   transition: filter var(--transition-normal);
 }
 
