@@ -340,6 +340,12 @@ nav {
   border-radius: var(--radius-lg);
   object-fit: cover;
   box-shadow: var(--shadow-sm);
+  filter: invert(1);
+  transition: filter var(--transition-normal);
+}
+
+[data-theme="dark"] .logo-image {
+  filter: invert(0);
 }
 
 .nav-name {
