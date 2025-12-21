@@ -674,6 +674,7 @@ nav {
   position: relative;
   background: transparent !important;
   border: none !important;
+  padding: 30px;
 }
 
 .image-container {
